@@ -157,3 +157,5 @@ export default {
 ## js-cookie 插件
 npm install js-cookie --save
 
+## nprogress 插件 Nprogress是一个JavaScript写的显示页面载入进度的小插件
+npm install --save nprogress

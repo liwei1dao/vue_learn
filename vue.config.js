@@ -4,7 +4,9 @@ function resolve (dir) {
 }
 
 module.exports = {
+
   configureWebpack: {
+    devtool: 'source-map',
     //    @路径走src文件夹
     resolve: {
       alias: {
