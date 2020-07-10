@@ -9,6 +9,7 @@
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
     "js-cookie": "^2.2.1",
@@ -21,6 +22,8 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/register": "^7.10.4",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-plugin-router": "^4.4.6",
@@ -29,6 +32,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "mockjs": "^1.1.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^9.0.2",
     "vue-cli-plugin-element": "^1.0.1",

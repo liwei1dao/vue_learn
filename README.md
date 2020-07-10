@@ -159,3 +159,9 @@ npm install js-cookie --save
 
 ## nprogress 插件 Nprogress是一个JavaScript写的显示页面载入进度的小插件
 npm install --save nprogress
+
+## axios http请求插件 与后台通信用插件
+npm install --save axios
+
+## mockjs 插件模拟服务器数据
+npm install mockjs --save-dev

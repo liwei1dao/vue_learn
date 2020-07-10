@@ -3,21 +3,32 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const constantRoutes = [{
-        path: '/',
-        redirect: '/login'
-    },
+import Layout from '@/layout'
+
+export const constantRoutes = [
     {
         path: '/login',
         name: 'Login',
         component: () =>
-            import ('@/views/login')
+            import ('@/views/login/index')
     },
     {
-        path: '/home',
-        name: 'Home',
-        component: () =>
-            import ('@/views/home')
+      path: '/auth-redirect',
+      component: () => import('@/views/login/auth-redirect'),
+      hidden: true
+    },
+    {
+        path: '/',
+        component: Layout,
+        redirect: '/home',
+        children: [
+          {
+            path: 'home',
+            component: () => import('@/views/home/index'),
+            name: 'Dashboard',
+            meta: { title: 'Home', icon: 'dashboard', affix: true }
+          }
+        ]
     }
 ]
 
@@ -40,26 +51,4 @@ const router = createRouter()
 
 export default router
 
-// import Vue from 'vue'
-// import VueRouter from 'vue-router'
 
-// Vue.use(VueRouter)
-
-//   const routes = [
-//   {
-//     path: '/',
-//     name: 'Login',
-//     component: () => import('@/views/login')
-//   },
-//   {
-//     path: '/home',
-//     name: 'Home',
-//     component: () => import('@/views/home')
-//   }
-// ]
-
-// const router = new VueRouter({
-//   routes
-// })
-
-// export default router

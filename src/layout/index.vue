@@ -16,16 +16,18 @@
 </template>
 
 <script>
-import { Sidebar } from './components'
+import { AppMain, Sidebar } from './components'
 import { mapState } from 'vuex'
 
 export default {
   name: 'Layout',
-  components: { Sidebar },
+  components: { AppMain, Sidebar },
   computed: {
     ...mapState({
       sidebar: state => state.app.sidebar,
       device: state => state.app.device,
+      needTagsView: state => state.settings.tagsView,
+      fixedHeader: state => state.settings.fixedHeader
     }),
     classObj () {
       return {
