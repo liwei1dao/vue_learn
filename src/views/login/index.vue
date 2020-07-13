@@ -15,7 +15,7 @@
           <svg-icon icon-class="user" />
         </span>
         <el-input ref="username"
-                  v-model="loginForm.username"
+                  v-model="loginForm.account"
                   placeholder="Username"
                   name="username"
                   type="text"
@@ -83,7 +83,7 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
+        account: 'admin',
         password: '111111'
       },
       loginRules: {
@@ -112,7 +112,7 @@ export default {
   },
 
   mounted () {
-    if (this.loginForm.username === '') {
+    if (this.loginForm.account === '') {
       this.$refs.username.focus()
     } else if (this.loginForm.password === '') {
       this.$refs.password.focus()
