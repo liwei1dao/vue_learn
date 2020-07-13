@@ -34,14 +34,33 @@
 import path from 'path'
 import { isExternal } from '@/utils/validate'
 import Item from './Item'
+import AppLink from './Link'
+import FixiOSBug from './FixiOSBug'
 
 export default {
   name: 'SidebarItem',
-  components: { Item },
+  components: { Item, AppLink },
+  mixins: [FixiOSBug],
+  props: {
+    // route object
+    item: {
+      type: Object,
+      required: true
+    },
+    isNest: {
+      type: Boolean,
+      default: false
+    },
+    basePath: {
+      type: String,
+      default: ''
+    }
+  },
   data () {
     this.onlyOneChild = null
     return {}
   },
+
   methods: {
     //判断当前导航是否显示子导航
     hasOneShowingChild (children = [], parent) {
@@ -67,15 +86,15 @@ export default {
       }
       return false
     },
-  },
-  resolvePath (routePath) {
-    if (isExternal(routePath)) {
-      return routePath
+    resolvePath (routePath) {
+      if (isExternal(routePath)) {
+        return routePath
+      }
+      if (isExternal(this.basePath)) {
+        return this.basePath
+      }
+      return path.resolve(this.basePath, routePath)
     }
-    if (isExternal(this.basePath)) {
-      return this.basePath
-    }
-    return path.resolve(this.basePath, routePath)
   }
 }
 

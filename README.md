@@ -163,5 +163,11 @@ npm install --save nprogress
 ## axios http请求插件 与后台通信用插件
 npm install --save axios
 
+## screenfull 全屏显示的插件
+npm install --save screenfull
+
+## fuse 模糊搜索插件
+npm install --save fuse.js
+
 ## mockjs 插件模拟服务器数据
 npm install mockjs --save-dev
