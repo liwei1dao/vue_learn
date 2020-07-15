@@ -29,14 +29,19 @@ const mutations = {
 }
 
 const actions = {
-
   // user login
   login({ commit }, userInfo) {
     const { account, password } = userInfo
+    console.log("登陆：",account,password)
     return new Promise((resolve, reject) => {
       login({ account: account.trim(), password: password }).then(response => {
         const { data } = response
+        console.log("登陆回应：",data)
         commit('SET_TOKEN', data.token)
+        commit('SET_INTRODUCTION', data.introduction)
+        commit('SET_NAME', data.name)
+        commit('SET_AVATAR', data.avatar)
+        commit('SET_ROLES', data.roles)
         setToken(data.token)
         resolve()
       }).catch(error => {
@@ -46,7 +51,7 @@ const actions = {
   },
 
   // get user info
-  getInfo({ commit, state }) {
+  getInfo({commit,state}) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
         const { data } = response
@@ -70,7 +75,9 @@ const actions = {
       }).catch(error => {
         reject(error)
       })
-    })
+    }
+    
+    )
   },
    // user logout
    logout({ commit, state, dispatch }) {

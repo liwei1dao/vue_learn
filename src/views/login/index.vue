@@ -10,14 +10,14 @@
         <h3 class="title">lego</h3>
       </div>
 
-      <el-form-item prop="username">
+      <el-form-item prop="account">
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
-        <el-input ref="username"
+        <el-input ref="account"
                   v-model="loginForm.account"
-                  placeholder="Username"
-                  name="username"
+                  placeholder="account"
+                  name="account"
                   type="text"
                   tabindex="1"
                   autocomplete="on" />
@@ -53,7 +53,6 @@
                  type="primary"
                  style="width:100%;margin-bottom:30px;"
                  @click.native.prevent="handleLogin">Login</el-button>
-
     </el-form>
   </div>
 </template>
@@ -87,7 +86,7 @@ export default {
         password: '111111'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        account: [{ required: true, trigger: 'blur', validator: validateUsername }],
         password: [{ required: true, trigger: 'blur', validator: validatePassword }]
       },
       passwordType: 'password',
@@ -113,7 +112,7 @@ export default {
 
   mounted () {
     if (this.loginForm.account === '') {
-      this.$refs.username.focus()
+      this.$refs.account.focus()
     } else if (this.loginForm.password === '') {
       this.$refs.password.focus()
     }
