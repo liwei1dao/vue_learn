@@ -35,7 +35,7 @@ export const constantRoutes = [
           {
             path: 'home',
             component: () => import('@/views/home/index'),
-            name: 'Dashboard',
+            name: 'Home',
             meta: { title: 'Home', icon: 'dashboard', affix: true }
           }
         ]
@@ -58,6 +58,11 @@ const createRouter = () => new Router({
 })
 
 const router = createRouter()
+
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
 
 export default router
 

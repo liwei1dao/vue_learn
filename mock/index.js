@@ -2,12 +2,14 @@ import Mock from 'mockjs'
 import { param2Obj } from '../src/utils'
 
 import user from './user'
+import cluster from './cluster'
 import role from './role'
 import article from './article'
 import search from './remote-search'
 
 const mocks = [
   ...user,
+  ...cluster,
   ...role,
   ...article,
   ...search
